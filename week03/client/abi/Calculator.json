@@ -1,0 +1,42 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "name": "IncorrectOperation",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "operation",
+                "type": "string"
+            },
+            {
+                "internalType": "int256",
+                "name": "x",
+                "type": "int256"
+            },
+            {
+                "internalType": "int256",
+                "name": "y",
+                "type": "int256"
+            }
+        ],
+        "name": "calculate",
+        "outputs": [
+            {
+                "internalType": "int256",
+                "name": "",
+                "type": "int256"
+            }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
+    }
+]
