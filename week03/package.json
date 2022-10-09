@@ -1,0 +1,21 @@
+{
+  "name": "week03",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "source": "client/index.js",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "parcel client/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethers": "^5.7.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.7.0",
+    "process": "^0.11.10"
+  }
+}
