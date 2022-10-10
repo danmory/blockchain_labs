@@ -1,5 +1,9 @@
 # Week 3
 
+## Deployed application
+
+Access <https://calculator-a1267.web.app/>
+
 ## Description
 
 The folder contains frontend for interacting with Ethereum smart contract.
