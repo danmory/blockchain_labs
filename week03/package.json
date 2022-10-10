@@ -12,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ethers": "^5.7.1"
+    "ethers": "^5.7.1",
+    "firebase": "^9.11.0"
   },
   "devDependencies": {
     "parcel": "^2.7.0",
