@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danila ERC20</title>
+    <script type="module" src="index.js" />
+</head>
+<body>
+    <div style="margin-bottom: 50;">
+        <h1>Token name: <span id="token-name"></span></h1>
+        <h2>Token symbol: <span id="token-symbol"></span></h1>
+        <h2>Token supply: <span id="token-supply"></span></h1>
+        <h2>My balance: <span id="my-balance">0</span></h1>
+    </div>
+
+    <div style="margin-bottom: 50;">
+        <h3>Transfer to</h3>
+        <div>
+            <input type="text" id="transfer-to" placeholder="to"/>
+            <input type="number" id="transfer-amount" placeholder="amount(in DANILA)"/>
+            <button id="transfer-btn">Send</button>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 50;">
+        <h3>Approve</h3>
+        <div>
+            <input type="text" id="approve-to" placeholder="to"/>
+            <input type="number" id="approve-amount" placeholder="amount(in DANILA)"/>
+            <button id="approve-btn">Approve</button>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 50;">
+        <h3>Transfer from</h3>
+        <div>
+            <input type="text" id="transfer-from" placeholder="from"/>
+            <input type="text" id="transfer-from-to" placeholder="to"/>
+            <input type="number" id="transfer-from-amount" placeholder="amount(in DANILA)"/>
+            <button id="transfer-from-btn">Transfer</button>
+        </div>
+    </div>
+
+    <div>
+        <h3>Balances</h3>
+        <button id="balances-btn">Retrieve</button>
+        <div>
+            <ul id="balances"></ul>
+        </div>
+    </div>
+</body>
+</html>
