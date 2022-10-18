@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "parcel index.html",
     "start:lottery": "parcel lottery_client/index.html",
     "start:token": "parcel token_client/index.html"
   },
@@ -11,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ethers": "^5.7.1"
+    "ethers": "^5.7.1",
+    "firebase": "^9.12.1"
   },
   "devDependencies": {
     "parcel": "^2.7.0",

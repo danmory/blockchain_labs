@@ -38,9 +38,9 @@ export async function setTokenData() {
   const myBalance = await getTokenContract().balanceOf(
     getAcc().signer.getAddress()
   );
-  document.querySelector("#token-name").textContent += tokenName;
-  document.querySelector("#token-symbol").textContent += tokenSymbol;
-  document.querySelector("#token-supply").textContent +=
+  document.querySelector("#token-name").textContent = tokenName;
+  document.querySelector("#token-symbol").textContent = tokenSymbol;
+  document.querySelector("#token-supply").textContent =
     (tokenSupply / 10 ** 18).toString() + " DANILA";
   document.querySelector("#my-balance").textContent =
     (myBalance / 10 ** 18).toString() + " DANILA";

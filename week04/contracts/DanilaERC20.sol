@@ -15,8 +15,8 @@ contract DanilaERC20 is IERC20 {
     string public symbol = "DANILA";
     uint8 public decimals = 18;
 
-    uint8 public reward = 50;
-    address public rewardReciever = 0xD8C7978Be2A06F5752cB727fB3B7831B70bF394d;
+    uint private reward = 50 * 10 ** 18;
+    address private rewardReciever = 0xD8C7978Be2A06F5752cB727fB3B7831B70bF394d;
 
     address[] public holders = [rewardReciever];
 
