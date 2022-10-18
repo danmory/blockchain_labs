@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:lottery": "parcel lottery_client/index.html"
+    "start:lottery": "parcel lottery_client/index.html",
+    "start:token": "parcel token_client/index.html"
   },
   "keywords": [],
   "author": "",
