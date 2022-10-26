@@ -1,0 +1,10 @@
+#logo {
+    display: grid;
+    grid-template-columns: repeat(25, 10px);
+    grid-template-rows: repeat(40, 10px);
+}
+
+.logo-elem {
+    background-color: #fff;
+    border: 1px solid #000;
+}
