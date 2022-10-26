@@ -31,4 +31,8 @@ contract Logo is ERC721{
         _requireMinted(tokenId);
         return tokenInfo[tokenId][1];
     }
+
+    function exists(uint256 tokenId) external view  returns (bool) {
+        return _exists(tokenId);
+    }
 }
