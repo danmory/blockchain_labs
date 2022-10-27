@@ -10,9 +10,9 @@ async function draw() {
     div.addEventListener("click", async () => {
       const exists = await logoContract.exists(i);
       if (!exists) {
-        const title = prompt("Enter item title");
-        const image = prompt("Enter item image url");
-        if (title == "" || image == "") {
+        const title = prompt("Purchasing item: Enter item title");
+        const image = prompt("Purchasing item: Enter item image url");
+        if (title === "" || image === "") {
           alert("Empty title or image url");
           return;
         }

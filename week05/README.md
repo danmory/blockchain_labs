@@ -6,6 +6,8 @@
     The app using SOKOL ETHEREUM test net.
 ```
 
+App URL - <https://logo-nft-653de.web.app>
+
 ### Contract
 
 The Logo contracts is implemented based on ERC721 implementation from OpenZeppelin.
@@ -20,6 +22,6 @@ The logo is 25 x 40.
 
 Click on cell:
 
-1. If it is free then you can buy it entering data in dialogs.
+1. If it is free then you can purchase it entering data in dialogs.
 
 2. If it is not free the the token info will be shown.
