@@ -1,3 +1,4 @@
+import { ethers } from "ethers";
 import { init, getAcc, getLogoContract } from "./utils";
 
 async function draw() {
@@ -9,11 +10,15 @@ async function draw() {
     div.addEventListener("click", async () => {
       const exists = await logoContract.exists(i);
       if (!exists) {
-        const tx = await logoContract.mint(
-          i,
-          prompt("Enter item title"),
-          prompt("Enter item image url")
-        );
+        const title = prompt("Enter item title");
+        const image = prompt("Enter item image url");
+        if (title == "" || image == "") {
+          alert("Empty title or image url");
+          return;
+        }
+        const tx = await logoContract.mint(i, title, image, {
+          value: ethers.utils.parseEther("0.001"),
+        });
         await tx.wait();
         console.log("Minted!");
       } else {
@@ -22,8 +27,11 @@ async function draw() {
       }
       window.location.reload();
     });
-    const [title, image] = await logoContract.getTokenInfo(i);
-    div.style.backgroundImage = `url(${image})`;
+    new Promise(async (resolve) => {
+      const [title, image] = await logoContract.getTokenInfo(i);
+      div.style.backgroundImage = `url(${image})`;
+      resolve();
+    });
     logo.appendChild(div);
   }
 }
