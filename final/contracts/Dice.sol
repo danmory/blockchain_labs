@@ -24,6 +24,13 @@ contract Dice {
 
     uint256[] public existingRooms;
 
+    event GamePlayed(
+        uint256 roomID,
+        uint256 dice1,
+        uint256 dice2,
+        address winner
+    );
+
     function canConnect(uint256 roomID) public view returns (bool) {
         uint256 status = roomAt[roomID].status;
         return
@@ -50,6 +57,8 @@ contract Dice {
         Room memory r = roomAt[roomID];
         if (r.status == PENDING) {
             require(msg.sender != r.player1, "Cannot play with yourself");
+            require(token == r.token, "Another token is used");
+            require(bet == r.prize, "Incorrect bet");
             /* 
             should pay the same token and the same amount,
             arguments ignored
@@ -82,20 +91,24 @@ contract Dice {
         roomAt[roomID] = r;
     }
 
-    function runGame(uint256 roomID) external returns (uint256, uint256) {
+    function runGame(uint256 roomID) external {
         Room storage r = roomAt[roomID];
         require(r.status == READY, "Room is not ready");
-        require(msg.sender == r.player1 || msg.sender == r.player2, "Not allowed");
+        require(
+            msg.sender == r.player1 || msg.sender == r.player2,
+            "Not allowed"
+        );
         (uint256 dice1, uint256 dice2) = throwDice();
         r.status = FINISHED;
         if (dice1 == dice2) {
             assert(IERC20(r.token).transfer(r.player1, r.prize / 2));
             assert(IERC20(r.token).transfer(r.player2, r.prize / 2));
-            return (dice1, dice2);
+            emit GamePlayed(r.id, dice1, dice2, address(0));
+            return;
         }
         address winner = dice1 > dice2 ? r.player1 : r.player2;
         assert(IERC20(r.token).transfer(winner, r.prize));
-        return (dice1, dice2);
+        emit GamePlayed(r.id, dice1, dice2, winner);
     }
 
     function appendRoom(uint256 roomID) private {
