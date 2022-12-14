@@ -5,6 +5,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import styled from "@emotion/styled";
+import Typography from "@mui/material/Typography";
 
 const Diceboard = styled.div`
   display: flex;
@@ -24,7 +25,14 @@ const Dice = styled.div`
   margin: 0 10px;
 `;
 
-export const RunningGame = ({ open, handleClose, stop, res1, res2 }) => {
+export const RunningGame = ({
+  open,
+  handleClose,
+  stop,
+  res1,
+  res2,
+  winner,
+}) => {
   const [dice1, setDice1] = useState(1);
   const [dice2, setDice2] = useState(1);
   const roll = () => {
@@ -43,6 +51,19 @@ export const RunningGame = ({ open, handleClose, stop, res1, res2 }) => {
           <Dice>{stop ? res1 : dice1}</Dice>
           <Dice>{stop ? res2 : dice2}</Dice>
         </Diceboard>
+        {winner && (
+          <Typography
+            sx={{
+              fontSize: 14,
+              display: "flex",
+              justifyContent: "center",
+              margin: "20px 0 0 0",
+            }}
+            color="text.secondary"
+          >
+            Winner: {winner.slice(0, 6) + "..." + winner.slice(-4)}
+          </Typography>
+        )}
       </DialogContent>
       <DialogActions>
         <Button
